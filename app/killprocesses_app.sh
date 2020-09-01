@@ -15,6 +15,7 @@ do
     pkill -KILL -f httpd
     pkill -KILL -f nginx
     pkill -KILL -f haproxy
+    pkill -KILL -f docker
     sleep 1
 done
 EOF

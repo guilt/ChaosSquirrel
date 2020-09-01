@@ -7,9 +7,11 @@ while true;
 do
     pkill -KILL -f java
     pkill -KILL -f python
+    pkill -KILL -f ruby
     pkill -KILL -f activemq
     pkill -KILL -f tibco
     pkill -KILL -f tibemsd
+    pkill -KILL -f emqttd
     sleep 1
 done
 EOF
