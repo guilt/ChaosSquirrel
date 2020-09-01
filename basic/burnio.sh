@@ -5,7 +5,7 @@ cat << EOF > /tmp/loopburnio.sh
 #!/bin/bash
 while true;
 do
-    dd if=/dev/urandom of=/var/tmp/burn bs=1M count=1024 iflag=fullblock
+    dd if=/dev/urandom of=/tmp/burn bs=1M count=65536 iflag=fullblock
 done
 EOF
 

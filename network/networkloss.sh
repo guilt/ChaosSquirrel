@@ -3,7 +3,8 @@
 
 # Drops 7% of packets, with 25% correlation with previous packet loss
 # 7% is high, but it isn't high enough that TCP will fail entirely
-tc qdisc add dev eth0 root netem loss 7% 25% &
-tc qdisc add dev bond0 root netem loss 7% 25% &
-tc qdisc add dev bond1 root netem loss 7% 25% &
+ip -o link show | awk -F': ' '{print $2}' | while read IF; do
+	tc qdisc add dev ${IF} root netem loss 7% 25% &
+done
+
 wait
