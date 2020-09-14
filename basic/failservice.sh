@@ -27,6 +27,6 @@ redis
 db-service
 auth-service
 EOF
-} | while read DOMAIN; do
-echo "127.0.0.1 ${DOMAIN}" | tee -a /etc/hosts
-done
+} | while read -r DOMAIN; do
+echo "127.0.0.1 ${DOMAIN}"
+done | tee -a /etc/hosts

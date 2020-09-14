@@ -13,7 +13,6 @@ do
     pkill -KILL -f redis-cli
     pkill -KILL -f mongod
     pkill -KILL -f mongo
-    pkill -KILL -f java
     pkill -KILL -f python
     pkill -KILL -f crsd.bin
     pkill -KILL -f tnslsnrjava
@@ -21,4 +20,4 @@ do
 done
 EOF
 
-nohup /bin/bash /tmp/kill_loop_db.sh &
+nohup /bin/bash /tmp/kill_loop_db.sh >/dev/null 2>&1 &

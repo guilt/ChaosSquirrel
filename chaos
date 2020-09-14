@@ -1,0 +1,16 @@
+#!/bin/bash
+# Script for Chaos Squirrel: Chaos Monkey Launcher
+
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+SCRIPT=$(realpath "${BASH_SOURCE[0]}")
+SCRIPT_DIR=$( cd "$( dirname "${SCRIPT}" )" >/dev/null 2>&1 && pwd )
+
+PATTERN=\*${1:-}.sh
+
+echo "Scripts are being executed from ${SCRIPT_DIR} ..."
+cd /tmp || echo "Unable to Change Directory."
+find "${SCRIPT_DIR}" -type f -iname "${PATTERN}" -exec \{\} \; 

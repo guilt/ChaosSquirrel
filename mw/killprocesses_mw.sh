@@ -5,9 +5,6 @@ cat << EOF > /tmp/kill_loop_mw.sh
 #!/bin/bash
 while true;
 do
-    pkill -KILL -f java
-    pkill -KILL -f python
-    pkill -KILL -f ruby
     pkill -KILL -f activemq
     pkill -KILL -f tibco
     pkill -KILL -f tibemsd
@@ -16,4 +13,4 @@ do
 done
 EOF
 
-nohup /bin/bash /tmp/kill_loop_mw.sh &
+nohup /bin/bash /tmp/kill_loop_mw.sh >/dev/null 2>&1 &
