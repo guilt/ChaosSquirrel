@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script for FailDNS Chaos Monkey
+# Script for NetworkFailDNS Chaos Monkey
 
 # Block all traffic on port 53
 iptables -A INPUT -p tcp -m tcp --dport 53 -j DROP

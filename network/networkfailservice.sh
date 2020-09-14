@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script for FailService Chaos Monkey
+# Script for NetworkFailService Chaos Monkey
 
 # Block well-known Cloud endpoints
 {
