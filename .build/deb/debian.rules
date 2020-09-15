@@ -78,8 +78,8 @@ install: build
 	dh_prep
 	dh_installdirs
 	# Add here commands to install the package into debian/tmp
-	mkdir -p $(CURDIR)/debian/tmp/share/ChaosSquirrel/
-	cp -a README.md LICENSE app basic chaos network $(CURDIR)/debian/tmp/share/ChaosSquirrel/
+	mkdir -p $(CURDIR)/debian/tmp/$(_datadir)/ChaosSquirrel/
+	cp -a README.md LICENSE app basic chaos network $(CURDIR)/debian/tmp/$(_datadir)/ChaosSquirrel/
 
 # Build architecture-independent files here.
 binary-indep: build install

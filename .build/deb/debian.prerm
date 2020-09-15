@@ -3,4 +3,6 @@ if   [ "remove" = "$1" ]; then  shift ; set -- "1" "$@"
 elif [ "upgrade" = "$1" ]; then shift ; set -- "2" "$@"
 fi
 
+_prefix=${_prefix:-/usr}
+
 rm -f ${_prefix}/bin/chaos

@@ -3,4 +3,6 @@ if   [ "configure" = "$1" -a "." = ".$2" ]; then  shift ; set -- "1" "$@"
 elif [ "configure" = "$1" -a "." != ".$2" ]; then shift ; set -- "2" "$@"
 fi
 
+_prefix=${_prefix:-/usr}
+
 ln -sf ${_prefix}/share/ChaosSquirrel/chaos ${_prefix}/bin/chaos
