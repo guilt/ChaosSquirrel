@@ -41,15 +41,19 @@ Like Netflix's Chaos Monkey, packaged to run standalone.
    cp -a * %{buildroot}/usr/local/share/%{name}/
 
 %files
+   /usr/local/share/ChaosSquirrel
    /usr/local/share/ChaosSquirrel/LICENSE
    /usr/local/share/ChaosSquirrel/README.md
    /usr/local/share/ChaosSquirrel/chaos
+   /usr/local/share/ChaosSquirrel/app
    /usr/local/share/ChaosSquirrel/app/killprocesses_app.sh
    /usr/local/share/ChaosSquirrel/app/killprocesses_db.sh
    /usr/local/share/ChaosSquirrel/app/killprocesses_mw.sh
+   /usr/local/share/ChaosSquirrel/basic
    /usr/local/share/ChaosSquirrel/basic/burncpu.sh
    /usr/local/share/ChaosSquirrel/basic/burnio.sh
    /usr/local/share/ChaosSquirrel/basic/filldisk.sh
+   /usr/local/share/ChaosSquirrel/network
    /usr/local/share/ChaosSquirrel/network/networkcorruption.sh
    /usr/local/share/ChaosSquirrel/network/networkfaildns.sh
    /usr/local/share/ChaosSquirrel/network/networkfailservice.sh
@@ -64,6 +68,3 @@ Like Netflix's Chaos Monkey, packaged to run standalone.
    rm -f /usr/local/bin/chaos
 
 %changelog
-
-* Mon Sep 14 14:21:21 PDT 2020 Shaibaaz Shaik <shaik@chainkit.com> v1.0.1
-- Initial RPM Release.
