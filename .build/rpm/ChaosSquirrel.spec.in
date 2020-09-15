@@ -1,0 +1,71 @@
+#
+# spec file for package ChaosSquirrel
+#
+# Copyright (c) 2020 ChaosSquirrel Authors
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+#
+# Please submit bugfixes or comments via GitHub
+
+Name:           ChaosSquirrel
+BuildArch:      noarch
+Version:        @VERSION@
+Prefix:         /usr/local
+Release:        1%{?dist}
+Summary:        Like Netflix's Chaos Monkey, packaged to run standalone.
+License:        MIT
+URL:            https://github.com/guilt/%{name}
+Source0:        https://github.com/guilt/%{name}/archive/%{version}.tar.gz
+%if 0%{?suse_version}
+Requires:       bash, coreutils, iproute2, iptables, openssl, procps
+%else
+Requires:       bash, coreutils, iproute, iproute-tc, iptables, openssl, procps
+%endif
+
+%description
+Like Netflix's Chaos Monkey, packaged to run standalone.
+
+%prep
+%setup -q
+
+%build
+
+%install
+   mkdir -p %{buildroot}/%{_prefix}/share/%{name}
+   cp -a * %{buildroot}/%{_prefix}/share/%{name}/
+
+%files
+   %{_prefix}/share/ChaosSquirrel
+   %{_prefix}/share/ChaosSquirrel/LICENSE
+   %{_prefix}/share/ChaosSquirrel/README.md
+   %{_prefix}/share/ChaosSquirrel/chaos
+   %{_prefix}/share/ChaosSquirrel/app
+   %{_prefix}/share/ChaosSquirrel/app/killprocesses_app.sh
+   %{_prefix}/share/ChaosSquirrel/app/killprocesses_db.sh
+   %{_prefix}/share/ChaosSquirrel/app/killprocesses_mw.sh
+   %{_prefix}/share/ChaosSquirrel/basic
+   %{_prefix}/share/ChaosSquirrel/basic/burncpu.sh
+   %{_prefix}/share/ChaosSquirrel/basic/burnio.sh
+   %{_prefix}/share/ChaosSquirrel/basic/filldisk.sh
+   %{_prefix}/share/ChaosSquirrel/network
+   %{_prefix}/share/ChaosSquirrel/network/networkcorruption.sh
+   %{_prefix}/share/ChaosSquirrel/network/networkfaildns.sh
+   %{_prefix}/share/ChaosSquirrel/network/networkfailservice.sh
+   %{_prefix}/share/ChaosSquirrel/network/networklatency.sh
+   %{_prefix}/share/ChaosSquirrel/network/networkloss.sh
+   %{_prefix}/share/ChaosSquirrel/network/networknullroute.sh
+
+%post
+   ln -sf %{_prefix}/share/ChaosSquirrel/chaos %{_prefix}/bin/chaos
+
+%preun
+   rm -f %{_prefix}/bin/chaos
+
+%changelog

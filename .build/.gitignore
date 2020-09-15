@@ -1,4 +1,7 @@
-*.rpm
-*.deb
 *.tar*
+
+*.rpm
+*.spec
+
+*.deb
 osc
