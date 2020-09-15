@@ -36,6 +36,16 @@ For instance, to **burn the CPU**, and nothing else, you'd run:
 chaos burncpu
 ```
 
+## Build it in your Programs Today!
+
+You'd simply have to do:
+
+```c
+system("chaos burncpu");
+```
+
+or an equivalent of that in your code, and you are set!
+
 ## Feedback and Improvements
 
 Send all feedback and comments to <karthikkumar@gmail.com>. Pull Requests 
