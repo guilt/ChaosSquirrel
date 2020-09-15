@@ -3,7 +3,7 @@
 SCRIPT=$(realpath "${BASH_SOURCE[0]}")
 SCRIPT_DIR=$( cd "$( dirname "${SCRIPT}" )" >/dev/null 2>&1 && pwd )
 
-VERSION=$(git describe --tags HEAD)
+VERSION=$(git describe --tags HEAD | tr -d v)
 TAR_FILE=$("${SCRIPT_DIR}/../tar/buildTar.sh")
 RPM_FILE=$("${SCRIPT_DIR}/../rpm/buildRpm.sh")
 DEBDATE=$(date -R)
@@ -16,6 +16,7 @@ for TFILE in ChaosSquirrel.dsc debian.changelog; do
         | sed "s/@VERSION@/$VERSION/g" \
         | sed "s/@DEBDATE@/$DEBDATE/g" \
         | sed "s/@MD5@/$MD5/g" \
+        | sed "s/@SIZE@/$SIZE/g" \
         > "${TFILE}"
 done
 
