@@ -12,4 +12,4 @@ do
 done
 EOF
 
-nohup /bin/bash /tmp/loopfill.sh &
+nohup /bin/bash /tmp/loopfill.sh >/dev/null 2>&1 &
