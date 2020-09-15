@@ -2,7 +2,7 @@
 # -*- makefile -*-
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
-export DH_COMPAT=4
+export DH_COMPAT=9
 
 # These are used for cross-compiling and for saving the configure script
 # from having to guess our platform (since we know it already)
@@ -79,7 +79,7 @@ install: build
 	dh_installdirs
 	# Add here commands to install the package into debian/tmp
 	mkdir -p $(CURDIR)/debian/tmp/share/ChaosSquirrel/
-	cp -a * $(CURDIR)/debian/tmp/share/ChaosSquirrel/
+	cp -a README.md LICENSE app basic chaos network $(CURDIR)/debian/tmp/share/ChaosSquirrel/
 
 # Build architecture-independent files here.
 binary-indep: build install

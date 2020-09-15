@@ -11,7 +11,7 @@ SIZE=$(ls -la "${TAR_FILE}" | awk '{print $5}')
 MD5=$(openssl md5 "${TAR_FILE}" | awk '{print $2}')
 
 cd ${SCRIPT_DIR} || exit 1
-for TFILE in ChaosSquirrel.dsc debian.changelog; do
+for TFILE in chaossquirrel.dsc debian.changelog; do
     cat "${TFILE}.in" \
         | sed "s/@VERSION@/$VERSION/g" \
         | sed "s/@DEBDATE@/$DEBDATE/g" \
