@@ -9,8 +9,10 @@ TAR_FILE=$("${SCRIPT_DIR}/../tar/buildTar.sh")
 mkdir -p "$HOME/rpmbuild/SOURCES"
 cp -a "${TAR_FILE}" "$HOME/rpmbuild/SOURCES"
 
-cd ${SCRIPT_DIR} || exit 1
+cd "${SCRIPT_DIR}" || exit 1
+# shellcheck disable=SC2043
 for TFILE in ChaosSquirrel.spec; do
+    # shellcheck disable=SC2002
     cat "${TFILE}.in" \
         | sed "s/@VERSION@/$VERSION/g" \
         > "${TFILE}"
