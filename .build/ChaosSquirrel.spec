@@ -22,7 +22,11 @@ Summary:        Like Netflix's Chaos Monkey, packaged to run standalone.
 License:        MIT
 URL:            https://github.com/guilt/%{name}
 Source0:        https://github.com/guilt/%{name}/archive/v%{version}.tar.gz
+%if 0%{?suse_version}
 Requires:       bash, coreutils, iproute2, iptables, openssl, procps
+%else
+Requires:       bash, coreutils, iproute, iproute-tc, iptables, openssl, procps
+%endif
 
 %description
 Like Netflix's Chaos Monkey, packaged to run standalone.
