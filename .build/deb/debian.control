@@ -1,0 +1,12 @@
+Section: utils
+Source: ChaosSquirrel
+Priority: optional
+Maintainer: ChaosSquirrel Authors
+Homepage: https://github.com/guilt/ChaosSquirrel/
+Standards-Version: 3.8.2
+Build-Depends: debhelper (>= 5)
+
+Package: ChaosSquirrel
+Architecture: any
+Depends: bash, coreutils, iproute2, iptables, openssl, procps
+Description: Like Netflix's Chaos Monkey, packaged to run standalone.

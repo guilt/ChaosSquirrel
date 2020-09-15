@@ -1,0 +1,6 @@
+#! /bin/sh
+if   [ "configure" = "$1" -a "." = ".$2" ]; then  shift ; set -- "1" "$@"
+elif [ "configure" = "$1" -a "." != ".$2" ]; then shift ; set -- "2" "$@"
+fi
+
+ln -sf ${_prefix}/share/ChaosSquirrel/chaos ${_prefix}/bin/chaos

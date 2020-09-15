@@ -4,4 +4,7 @@
 *.spec
 
 *.deb
+*.changelog
+*.dsc
+
 osc

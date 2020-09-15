@@ -1,0 +1,6 @@
+#! /bin/sh
+if   [ "remove" = "$1" ]; then  shift ; set -- "1" "$@"
+elif [ "upgrade" = "$1" ]; then shift ; set -- "2" "$@"
+fi
+
+rm -f ${_prefix}/bin/chaos

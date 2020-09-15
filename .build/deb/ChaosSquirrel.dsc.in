@@ -1,0 +1,9 @@
+Format: 1.0
+Version: @VERSION@
+Source: ChaosSquirrel
+Binary: ChaosSquirrel
+Maintainer: ChaosSquirrel Authors
+Architecture: any
+Build-Depends: debhelper (>= 5)
+Files: 
+ @MD5@ @SIZE@ @VERSION@.tar.gz
